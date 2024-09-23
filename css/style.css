@@ -32,7 +32,24 @@ nav {
     max-width: 1200px;
     margin: auto;
 }
-
+.audio-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo com baixa opacidade */
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+.mute-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
+audio {
+    display: none;
+}
 .links-navegacao {
     list-style: none;
     display: flex;
