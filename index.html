@@ -23,24 +23,66 @@
     </header>
 
     <section id="inicio" class="fundo">
-        <div class="audio-container">
-            <audio id="myAudio" loop autoplay>
-                <source src="./fundo msc.mp3" type="audio/mpeg">
-                Seu navegador não suporta o elemento de áudio.
-            </audio>
-            <i class='bx bx-volume-full mute-icon' id="muteIcon"></i>
+        <audio id="myAudio" loop muted>
+            <source src="./fundo msc.mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+
+        <!-- Botão de Permitir -->
+        <div id="permissionContainer">
+            <button id="permissionButton">Permitir tocar som</button>
         </div>
-    
-        <script>
+
+        <!-- Botão de desmutar/mutar (começa escondido) -->
+        <i class='bx bx-volume-full mute-icon' id="muteIcon" style="display: none;"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
             const audio = document.getElementById('myAudio');
             const muteIcon = document.getElementById('muteIcon');
-    
-            muteIcon.addEventListener('click', () => {
-                audio.muted = !audio.muted;
-                muteIcon.classList.toggle('bx-volume-full');
-                muteIcon.classList.toggle('bx-volume-mute');
+            const permissionButton = document.getElementById('permissionButton');
+            const permissionContainer = document.getElementById('permissionContainer');
+
+            // Tentar tocar o áudio (mutado inicialmente)
+            audio.play().catch(() => {
+                console.log('Autoplay bloqueado até interação do usuário.');
             });
-        </script>
+
+            // Quando o usuário clicar em "Permitir tocar som"
+            permissionButton.addEventListener('click', () => {
+                // Desmuta o áudio e começa a tocar
+                audio.muted = false;
+                audio.play();
+
+                // Esconder o botão de permissão
+                permissionContainer.style.display = 'none';
+
+                // Mostrar o ícone de mute/desmute
+                muteIcon.style.display = 'block';
+
+                // Alterar ícone para indicar que o áudio está tocando
+                muteIcon.classList.remove('bx-volume-mute');
+                muteIcon.classList.add('bx-volume-full');
+            });
+
+            // Alternância de mute/desmute pelo ícone
+            muteIcon.addEventListener('click', () => {
+                if (audio.muted) {
+                    // Desmuta e troca o ícone para "mute"
+                    audio.muted = false;
+                    muteIcon.classList.remove('bx-volume-mute');
+                    muteIcon.classList.add('bx-volume-full');
+                } else {
+                    // Muta e troca o ícone para "volume full"
+                    audio.muted = true;
+                    muteIcon.classList.remove('bx-volume-full');
+                    muteIcon.classList.add('bx-volume-mute');
+                }
+            });
+        });
+    </script>
+
         <div class="conteudo-hero">
             <h1>BEATRVZS</h1>
             <p>Designer, Artista e Ilustradora.</p>
