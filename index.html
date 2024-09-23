@@ -44,37 +44,37 @@
             const permissionButton = document.getElementById('permissionButton');
             const permissionContainer = document.getElementById('permissionContainer');
 
-            // Tentar tocar o áudio (mutado inicialmente)
+           
             audio.play().catch(() => {
                 console.log('Autoplay bloqueado até interação do usuário.');
             });
 
-            // Quando o usuário clicar em "Permitir tocar som"
+            
             permissionButton.addEventListener('click', () => {
-                // Desmuta o áudio e começa a tocar
+             
                 audio.muted = false;
                 audio.play();
 
-                // Esconder o botão de permissão
+              
                 permissionContainer.style.display = 'none';
 
-                // Mostrar o ícone de mute/desmute
+                
                 muteIcon.style.display = 'block';
 
-                // Alterar ícone para indicar que o áudio está tocando
+                
                 muteIcon.classList.remove('bx-volume-mute');
                 muteIcon.classList.add('bx-volume-full');
             });
 
-            // Alternância de mute/desmute pelo ícone
+           
             muteIcon.addEventListener('click', () => {
                 if (audio.muted) {
-                    // Desmuta e troca o ícone para "mute"
+                    
                     audio.muted = false;
                     muteIcon.classList.remove('bx-volume-mute');
                     muteIcon.classList.add('bx-volume-full');
                 } else {
-                    // Muta e troca o ícone para "volume full"
+                   
                     audio.muted = true;
                     muteIcon.classList.remove('bx-volume-full');
                     muteIcon.classList.add('bx-volume-mute');
@@ -88,7 +88,7 @@
             <p>Designer, Artista e Ilustradora.</p>
             <a href="#projetos" class="botao">Veja Meus Projetos</a>
         </div>
-       <!-- <div class="imagem-pulsante">-->
+       
             
     </section>
 

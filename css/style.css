@@ -36,18 +36,18 @@ nav {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fundo com baixa opacidade */
+    background: rgba(0, 0, 0, 0.5); 
     padding: 5px;
     display: flex;
     justify-content: center;
-    z-index: 1000; /* Garante que fique acima de outros elementos */
+    z-index: 1000; 
 }
 #permissionContainer {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000; /* Garantir que esteja acima de outros elementos */
+    z-index: 1000; 
 }
 
 #permissionButton {
@@ -58,7 +58,7 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    animation: pulse 1.5s infinite; /* Adiciona a animação de pulsar */
+    animation: pulse 1.5s infinite; 
     transition: background-color 0.3s ease;
 }
 
@@ -66,7 +66,7 @@ nav {
     background-color: #000000d8;
 }
 
-/* Animação de pulsar */
+
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(128, 0, 128, 0.7);
@@ -79,7 +79,7 @@ nav {
     }
 }
 
-/* Estilo do ícone de mute/desmute */
+
 .mute-icon {
     position: fixed;
     bottom: 20px;
@@ -345,5 +345,75 @@ footer {
     font-size: 60px;
     font-weight:500 ;
   }
-  
+  @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .links-navegacao {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .links-navegacao li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .fundo h1 {
+        font-size: 3rem;
+    }
+
+    .imagem-pulsante {
+        width: 200px;
+        height: 200px;
+    }
+
+    .item-galeria {
+        width: 100%;
+    }
+
+    .sobre {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .conteudo-sobre h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Para telas menores que 480px (celulares) */
+@media (max-width: 480px) {
+    .fundo h1 {
+        font-size: 2rem;
+    }
+
+    .imagem-pulsante {
+        width: 150px;
+        height: 150px;
+    }
+
+    .item-galeria img {
+        height: auto;
+    }
+
+    .conteudo-sobre h1 {
+        font-size: 1.5rem;
+    }
+
+    .projetos h1,
+    .contato h1 {
+        font-size: 2rem;
+    }
+
+    .botao {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .footer i {
+        font-size: 40px;
+    }
+}
   
