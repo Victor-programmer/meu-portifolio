@@ -13,7 +13,11 @@
     <header>
         <nav>
             <div class="logo">BEATRVZS</div>
-            <ul class="links-navegacao">
+            <div class="hamburger" id="hamburger">
+                <i class='bx bx-menu'></i> <!-- Ícone de hamburger do Boxicons -->
+            </div>
+            
+            <ul class="links-navegacao hidden">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#sobre">Sobre</a></li>
@@ -81,6 +85,24 @@
                 }
             });
         });
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelector('.links-navegacao'); // Seleciona os itens de navegação
+    const hamburger = document.getElementById('hamburger'); // Seleciona o botão hamburger
+    const header = document.querySelector('header'); // Seleciona o header
+
+    hamburger.addEventListener('click', function () {
+        // Alterna a classe "hidden" para mostrar ou esconder os itens de navegação
+        navLinks.classList.toggle('hidden');
+        
+        // Altera a altura do cabeçalho
+        if (navLinks.classList.contains('hidden')) {
+            header.style.height = "50px"; // Define altura reduzida
+        } else {
+            header.style.height = "200px"; // Define altura padrão
+        }
+    });
+});
+
     </script>
 
         <div class="conteudo-hero">
